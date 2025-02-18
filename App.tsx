@@ -3,11 +3,13 @@ import {
   Roboto_700Bold,
   useFonts,
 } from "@expo-google-fonts/roboto";
-import { ActivityIndicator } from "react-native";
+import { StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
 
 import { Groups } from "@screens/Groups";
 import { defaultTheme } from "@theme/default";
+
+import { Loading } from "@components/Loading";
 
 export function App() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +19,13 @@ export function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      {fontsLoaded ? <Groups /> : <ActivityIndicator />}
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+
+      {fontsLoaded ? <Groups /> : <Loading />}
     </ThemeProvider>
   );
 }
