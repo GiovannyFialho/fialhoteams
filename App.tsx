@@ -8,9 +8,7 @@ import { ThemeProvider } from "styled-components/native";
 
 import { defaultTheme } from "@theme/default";
 
-import { Groups } from "@screens/Groups";
-// import { NewGroup } from "@screens/NewGroup";
-// import { Players } from "@screens/Players";
+import { Routes } from "@routes/routes";
 
 import { Loading } from "@components/Loading";
 
@@ -28,7 +26,7 @@ export function App() {
         translucent
       />
 
-      {fontsLoaded ? <Groups /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
