@@ -3,7 +3,7 @@ import { TouchableOpacityProps } from "react-native";
 
 import { type ButtonIconTypeStyleProps, Container, Icon } from "./styles";
 
-interface ButtonIcon extends TouchableOpacityProps {
+interface ButtonIconProps extends TouchableOpacityProps {
   iconName: keyof typeof MaterialIcons.glyphMap;
   type?: ButtonIconTypeStyleProps;
 }
@@ -12,7 +12,7 @@ export function ButtonIcon({
   iconName,
   type = "PRIMARY",
   ...rest
-}: ButtonIcon) {
+}: ButtonIconProps) {
   return (
     <Container {...rest}>
       <Icon name={iconName} type={type} />
