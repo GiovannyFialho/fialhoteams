@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { View } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { useTheme } from "styled-components/native";
 
 import { AppRoutes } from "@routes/app.routes";
@@ -8,10 +8,13 @@ export function Routes() {
   const { COLORS } = useTheme();
 
   return (
-    <View style={{ flex: 1, backgroundColor: COLORS.GRAY_600 }}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1, backgroundColor: COLORS.GRAY_600 }}
+    >
       <NavigationContainer>
         <AppRoutes />
       </NavigationContainer>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
